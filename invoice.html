@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9f5f2;
+            overflow-x: hidden;
+        }
+        .brand-name { 
+            position: absolute; 
+            top: -150px;
+            left: -40px;
+            z-index: 10; 
+        }
+        .nav {
+            position: absolute;
+            top: 0;
+            right: 30px;
+        }
+        .nav li {
+            font-size: 20px;
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+            position: relative;
+        }
+        .nav a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            background-color: transparent;
+        }
+        .catalog-container {
+            position: relative;
+            float: right;
+            top: 20px;
+            right: 120px;
+            border: 3px solid #87BAAB;
+            background-color: #87BAAB;
+            border-radius: 40px;
+            height: 40px;
+            width: 235px;
+        }
+        .back-container {
+            position: relative;
+            float: right;
+            border: 3px solid #B27092;
+            background-color: #B27092;
+            border-radius: 40px;
+            top: 20px;
+            left: 215px;
+            height: 40px;
+            width: 80px;
+        }
+        .invoice-container {
+            position: relative;
+            top: 150px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f3f1f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 4px solid #f3f1f0;
+            text-align: left;
+            padding: 12px;
+            font-size: 16px;
+        }
+        th {
+            font-weight: bold;
+        }
+        td {
+            background-color: #B27092;
+        }
+        .summary {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+        .summary-table-container {
+            width: 250px; 
+        }
+        .summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .summary th, .summary td {
+            text-align: right;
+            padding: 8px;
+            font-size: 18px;
+            border: none;
+        }
+        .summary th {
+            font-weight: bold;
+        }
+        .summary tr {
+            border-bottom: 4px solid #f3f1f0;
+        }
+        .cancel-btn {
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: #87BAAB;
+            font-family: 'Times New Roman', Times, serif;
+            width: 100px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-name">
+        <img src="../2306678_IA2/Assets/logo.png" alt="logo" width="410px">
+    </div>
+    <div class="catalog-container"></div>
+    <div class="back-container"></div>
+    <div class="nav">
+        <ul>
+            <b><li><a href="../2306678_IA2/home.html">Catalog</a></li></b>
+            <b><li><a href="../2306678_IA2/about us.html">About Us</a></li></b>
+            <b><li><a href="../2306678_IA2/home.html">Back</a></li></b>
+        </ul>
+    </div>
+    <div class="invoice-container" id="invoice-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEM NAME</th>
+                    <th>QUANTITY</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody id="invoice-body">
+                <!-- Invoice -->
+            </tbody>
+        </table>
+        <div class="summary">
+            <div class="summary-table-container">
+                <table>
+                    <tr>
+                        <th>Subtotal</th>
+                        <td id="subtotal">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th>Tax</th>
+                        <td id="tax">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th>Discount</th>
+                        <td id="discount">$0.00</td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td id="total">$0.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>        
+        <button class="cancel-btn" onclick="clearInvoice()">Cancel</button>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let subtotal = 0;
+            const taxRate = 0.1;
+            const discountRate = 0; 
+
+            // invoice table with cart data
+            const tbody = document.getElementById('invoice-body');
+            tbody.innerHTML = ''; // clear any existing rows
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                const itemTotal = (item.price * item.quantity).toFixed(2);
+                subtotal += item.price * item.quantity;
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${itemTotal}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // display the totals
+            const tax = (subtotal * taxRate).toFixed(2);
+            const total = (subtotal + parseFloat(tax) - discountRate).toFixed(2);
+
+            // update with totals
+            document.querySelector('#subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.querySelector('#tax').textContent = `$${tax}`;
+            document.querySelector('#discount').textContent = `$${discountRate.toFixed(2)}`;
+            document.querySelector('#total').textContent = `$${total}`;
+        };
+
+        //  clear the invoice and reset the totals
+        function clearInvoice() {
+            // clear table rows
+            const tbody = document.getElementById('invoice-body');
+            tbody.innerHTML = '';
+
+            // reset totals
+            document.querySelector('#subtotal').textContent = '$0.00';
+            document.querySelector('#tax').textContent = '$0.00';
+            document.querySelector('#discount').textContent = '$0.00';
+            document.querySelector('#total').textContent = '$0.00';
+
+            localStorage.removeItem('cart');
+        }
+    </script>    
+</body>
+</html>

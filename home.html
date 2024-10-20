@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+    <style>
+        @font-face {
+            font-family: 'Amgior';
+            src: url('../2306678_IA2/Assets/AmgiorDemo.otf');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            background-color: #f9f5f2;
+            overflow-x: hidden;
+        }
+        .brand-name {
+            position: absolute;
+            top: -150px;
+            left: -40px;
+            z-index: 10;
+        }
+        .nav {
+            position: absolute;
+            top: 0;
+            right: 30px;
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav li {
+            font-size: 20px;
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+        }
+        .nav a {
+            display: block;
+            color: #512D38;
+            padding: 16px;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            background-color: #B27092;
+            color: white;
+            border-radius: 20px;
+        }
+        .banner {
+            background-color: #87BAAB;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 50px;
+            top: 0;
+        }
+        .banner h1 {
+            font-family: 'Amgior';
+            font-size: 70px;
+            color: #512D38;
+        }
+        .banner p {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #512D38;
+        }
+        .brand-statement {
+            position: relative;
+            margin-left: 200px;
+            top: 150px;
+            color: #512D38;
+        }
+        .brand-cont {
+            position: relative;
+            float: right;
+            right: 90px;
+            font-size: 25px;
+            text-align: left;
+            line-height: 1.5;
+            width: 600px;
+            color: #512D38;
+        }
+        .learn-more {
+            position: relative;
+            font-size: 20px;
+            float: right;
+            left: 30px;
+            top: 250px;
+            border: 2px solid #87BAAB;
+            background-color: #87BAAB;
+            border-radius: 20px;
+            padding: 5px;
+            color:#512D38;
+            text-align: center;
+        }
+        .learn-more a {
+            text-decoration: none;  
+            color: inherit;         
+        }
+        .learn-more a:hover {
+            color: white;           
+            text-decoration: none;  
+        }
+        .products {
+            position: relative;
+            text-align: center;
+            top: 400px;
+            left: 370px;
+            font-size: 25px;
+            color: #512D38;
+        }
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+            position: relative;
+            top: 300px;
+        }
+        .item {
+            position: relative;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            border: 2px solid #512D38;
+            border-radius: 50px;
+            height: 300px; 
+            width: 300px;
+        }
+        .inner-border {
+            position: relative;
+            border: 2px solid #512D38;
+            border-radius: 50px;
+            top: 10px; 
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+        }
+        .inner-border img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 20%;
+        }
+        h3 {
+            font-size: 20px;
+            color: #512D38;
+            margin: 5px 0 0;
+            text-align: center;
+        }
+        .price {
+            font-size: 18px;
+            color:#B27092;
+            margin-top: 5px;
+            display: block;
+            text-align: center;
+        }
+        .add-button {
+            font-size: 20px;
+            background-color: #87BAAB;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-name">
+        <img src="../2306678_IA2/Assets/logo.png" alt="logo" width="410px">
+    </div>
+    <div class="nav">
+        <ul>
+            <b><li><a href="../2306678_IA2/home.html">Catalog</a></li></b>
+            <b><li><a href="../2306678_IA2/about us.html">About Us</a></li></b>
+            <b><li><a href="../2306678_IA2/invoice.html" class="checkout-button" onclick="checkout()">Checkout</a></li></b>
+
+        </ul>
+    </div>
+    <div class="banner">
+        <h1>YOUR CRAFTING ADVENTURE STARTS HERE</h1>
+        <p>Crafting joy, one kit at a time.</p>
+    </div>
+    <div class="brand-statement">
+        <b><h2>Brand Mission</h2></b>
+    </div>
+    <div class="brand-cont">
+        <p>To provide top-quality crafting kits that inspire creativity, relaxation, and a sense of accomplishment in people of all skill levels. We believe in the power of art and craft to transform lives, and we strive to make it accessible for everyone.</p>
+    </div>
+    <div class="learn-more">
+        <b><a href="../2306678_IA2/about us.html">Learn More</a></b>
+    </div>
+    <div class="products">
+        <b><p>Our Featured Products</p></b>
+    </div>
+    <div class="container">
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 1.jpg" alt="Duck Amigurumi Crochet Kit" width="auto" height="auto">
+            </div>
+            <h3>Duck Amigurumi Crochet Kit</h3>
+            <span class="price">$25.99</span>
+            <button class="add-button" onclick="addToCart(0)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 2.jpg" alt="Cow Amigurumi Crochet Kit" width="auto" height="auto">
+            </div>
+            <h3>Cow Amigurumi Crochet Kit</h3>
+            <span class="price">$25.99</span> 
+            <button class="add-button" onclick="addToCart(1)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 3.jpg" alt="Cat Amigurumi Crochet Kit" width="auto" height="auto">
+            </div>
+            <h3>Cat Amigurumi Crochet Kit</h3>
+            <span class="price">$25.99</span> 
+            <button class="add-button" onclick="addToCart(2)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 4.jpg" alt="Unicorn Amigurumi Crochet Kit" width="auto" height="auto">
+            </div>
+            <h3>Unicorn Amigurumi Crochet Kit</h3>
+            <span class="price">$25.99</span> 
+            <button class="add-button" onclick="addToCart(3)">+</button>
+        </div>
+
+        <!-- Row 2 -->
+
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 5.jpg" alt="Flower Punch Needle Kit" width="auto" height="auto">
+            </div>
+            <h3>Flower Punch Needle Kit</h3> 
+            <span class="price">$12.99</span>
+            <button class="add-button" onclick="addToCart(4)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 6.jpg" alt="Scenery Punch Needle Kit" width="auto" height="auto">
+            </div>
+            <h3>Scenery Punch Needle Kit</h3> 
+            <span class="price">$12.99</span>
+            <button class="add-button" onclick="addToCart(5)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 7.jpg" alt="Assorted Punch Needle Kit" width="auto" height="auto">
+            </div>
+            <h3>Assorted Punch Needle Kit</h3>
+            <span class="price">$12.99</span>
+            <button class="add-button" onclick="addToCart(6)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 8.jpg" alt="Flower Shaped Punch Needle Kit" width="auto" height="auto">
+            </div>
+            <h3>Flower Shaped Punch Needle Kit</h3> 
+            <span class="price">$12.99</span>
+            <button class="add-button" onclick="addToCart(7)">+</button>
+        </div>
+        <!-- Row 3 -->
+
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 9.jpg" alt="Sentro Knitting Machine" width="auto" height="auto">
+            </div>
+            <h3>Sentro Knitting Machine</h3> 
+            <span class="price">$49.99</span>
+            <button class="add-button" onclick="addToCart(8)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 10.jpg" alt="Crochet Set" width="auto" height="auto">
+            </div>
+            <h3>Crochet Set</h3> 
+            <span class="price">$11.99</span>
+            <button class="add-button" onclick="addToCart(9)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 11.jpg" alt="Knitting Set" width="auto" height="auto">
+            </div>
+            <h3>Knitting Set</h3> 
+            <span class="price">$10.99</span>
+            <button class="add-button" onclick="addToCart(10)">+</button>
+        </div>
+        <div class="item">
+            <div class="inner-border">
+                <img src="../2306678_IA2/Assets/product 12.jpg" alt="Crochet Pattern Catalog" width="auto" height="auto">
+            </div>
+            <h3>Crochet Pattern Catalog</h3> 
+            <span class="price">$15.99</span>
+            <button class="add-button" onclick="addToCart(11)">+</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const products = [
+            { name: "Duck Amigurmi Crochet Kit", price: 25.99 },
+            { name: "Cow Amigurmi Crochet Kit", price: 25.99 },
+            { name: "Cat Amigurmi Crochet Kit", price: 25.99 },
+            { name: "Unicorn Amigurmi Crochet Kit", price: 25.99 },
+            { name: "Flower Punch Needle Kit", price: 12.99 },
+            { name: "Scenery Punch Needle Kit", price: 12.99 },
+            { name: "Assorted Punch Needle Kit", price: 12.99 },
+            { name: "Flower Shaped Punch Needle Kit", price: 12.99 },
+            { name: "Sentro Knitting Machine", price: 49.99 },
+            { name: "Crochet Set", price: 11.99 },
+            { name: "Knitting Set", price: 10.99 },
+            { name: "Crochet Pattern Catalog", price: 15.99 },
+        ];
+
+        function addToCart(index) {
+            const product = products[index];
+            const existingItemIndex = cart.findIndex(item => item.name === product.name);
+
+            if (existingItemIndex !== -1) {
+                cart[existingItemIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${product.name} added to cart!`);
+        }
+
+        function checkout() {
+            window.location.href = "../2306678_IA2/invoice.html";
+        }
+    </script>
+</body>
+</html>
